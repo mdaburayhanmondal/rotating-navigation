@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #333;
+    color: #222;
+    font-family: sans-serif;
+}
+
+/* --- MAIN CONTAINER --- */
+.container {
+    background-color: #fafafa;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+}
+
+body.show-nav .container {
+    transform: rotate(-20deg);
+}
+
+/* --- CIRCLE NAVIGATION BUTTONS --- */
+.circleContainer {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    z-index: 200;
+}
+
+.circle {
+    background-color: #ff7979;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear, background-color 0.5s;
+}
+
+body.show-nav .circle {
+    transform: rotate(-90deg);
+    background-color: red;
+}
+
+.circle button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background: transparent;
+    border: 0;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+.circle button#open {
+    left: 60%;
+}
+
+.circle button#close {
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+
+/* --- NAVIGATION MENU --- */
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    color: red;
+    margin: 40px 0;
+    transform: translateX(-150%);
+    transition: transform 0.4s ease-in;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul li i {
+    font-size: 20px;
+}
+
+body.show-nav nav ul li {
+    transform: translateX(0);
+}
+
+body.show-nav nav ul li:nth-child(2) {
+    margin-left: 15px;
+    transition-delay: 0.1s;
+}
+
+body.show-nav nav ul li:nth-child(3) {
+    margin-left: 30px;
+    transition-delay: 0.2s;
+}
+
+/* --- CONTENT STYLING --- */
+img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.content {
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.content p {
+    line-height: 1.6;
+}
